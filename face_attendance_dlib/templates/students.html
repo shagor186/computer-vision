@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registered Students</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 90%;
+      margin: auto;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: center;
+    }
+    img {
+      width: 80px;
+      border-radius: 5px;
+    }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Registered Students</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Location</th>
+      <th>Photo</th>
+    </tr>
+    {% for s in data %}
+    <tr>
+      <td>{{ s[0] }}</td>
+      <td>{{ s[1] }}</td>
+      <td>{{ s[2] }}</td>
+      <td>{{ s[3] }}</td>
+      <td>{{ s[4] }}</td>
+      <td><img src="{{ s[5] }}"></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <div style="text-align:center; margin-top:20px;">
+    <a href="/register">Back to Register</a> | <a href="/attendance">Start Attendance</a>
+  </div>
+</body>
+</html>

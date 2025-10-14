@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register Student</title>
+  <style>
+    form {
+      width: 320px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    input, button {
+      margin: 6px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Register Student</h2>
+  <form action="/register" method="POST" enctype="multipart/form-data">
+    <input type="text" name="student_id" placeholder="Student ID" required>
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="number" name="age" placeholder="Age" required>
+    <input type="text" name="location" placeholder="Location" required>
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Register</button>
+  </form>
+
+  <div style="text-align:center; margin-top:15px;">
+    <a href="/students">View Students</a> | <a href="/attendance">Start Attendance</a>
+  </div>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul style="text-align:center; list-style:none;">
+        {% for category, message in messages %}
+          <li style="color:green;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>

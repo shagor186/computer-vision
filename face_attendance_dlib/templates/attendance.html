@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance Results</title>
+</head>
+<body>
+  <h2 style="text-align:center;">Attendance Results</h2>
+  {% if recognized %}
+    <h3 style="text-align:center;">Recognized Students:</h3>
+    <ul style="text-align:center; list-style:none;">
+      {% for name in recognized %}
+      <li>{{ name }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p style="text-align:center;">No recognized faces.</p>
+  {% endif %}
+  <p style="text-align:center;"><a href="/register">Back to Home</a></p>
+</body>
+</html>
