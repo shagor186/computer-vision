@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Image Information{% endblock %}
+
+{% block content %}
+<h2>Edit Image Information</h2>
+
+<div class="edit-container">
+    <div class="image-preview">
+        <img src="{{ url_for('static', filename='uploads/' + image.filename) }}" alt="{{ image.name }}">
+    </div>
+
+    <form method="POST" class="edit-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ image.name }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="user_id">ID:</label>
+            <input type="text" id="user_id" name="user_id" value="{{ image.user_id }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="{{ image.age }}" min="0" required>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="{{ image.location }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Information</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
